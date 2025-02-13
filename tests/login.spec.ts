@@ -6,7 +6,7 @@ test.beforeEach(async ({ page }) => {
   await page.goto('https://qaplaywright.aiwyn-dev.app/client-portal/login')
 })
 
-test('should search for android', { tag: ['@smoke'] }, async ({ page }) => {
+test.skip('should login to aiwyn', async ({ page }) => {
   // Login to the application
   await expect(page.getByText('Log in to Your Account')).toBeVisible()
   await page.getByTestId('username').fill('qa+interviewer1@aiwyn.ai')

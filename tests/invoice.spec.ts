@@ -10,7 +10,7 @@ test.beforeEach(async ({ page }) => {
   invoice.login('qa+interviewer1@aiwyn.ai', 'Aiwyn123!')
 })
 
-test('should search for android', { tag: ['@smoke'] }, async ({ page }) => {
+test('should pay for an invoice', async ({ page }) => {
   const invoice = new InvoicePage(page)
 
   await expect(invoice.title).toBeVisible({ timeout: 60000 })
