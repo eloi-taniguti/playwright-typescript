@@ -30,7 +30,7 @@ export default defineConfig({
   use: {
     testIdAttribute: 'data-cy',
     /* Base URL to use in actions like `await page.goto('/')`. */
-    baseURL: '',
+    baseURL: 'https://start.duckduckgo.com',
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
   },
@@ -38,13 +38,20 @@ export default defineConfig({
   /* Configure projects for major browsers */
   projects: [
     {
+      name: 'aywin',
+      use: { ...devices['Desktop Chrome'], baseURL: '' },
+      testMatch: '**/invoice.spec.ts',
+    },
+    {
       name: 'e2e',
       use: { ...devices['Desktop Chrome'] },
+      testIgnore: '**/invoice.spec.ts',
     },
     {
       name: 'smoke',
       use: { ...devices['Desktop Chrome'] },
       grep: /@smoke/,
+      testIgnore: '**/invoice.spec.ts',
     },
     {
       name: 'api',

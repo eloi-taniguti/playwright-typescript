@@ -5,7 +5,8 @@
   "scripts": {
     "e2e": "npx playwright test --project=e2e",
     "e2e:smoke": "npx playwright test --project=smoke",
-    "e2e:api": "npx playwright test --project=api"
+    "e2e:api": "npx playwright test --project=api",
+    "e2e:aiwyn": "npx playwright test --project=aiwyn"
   },
   "keywords": [],
   "author": "",
