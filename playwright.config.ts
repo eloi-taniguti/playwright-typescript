@@ -28,7 +28,6 @@ export default defineConfig({
   reporter: 'html',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
-    testIdAttribute: 'data-cy',
     /* Base URL to use in actions like `await page.goto('/')`. */
     baseURL: 'https://start.duckduckgo.com',
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
@@ -39,7 +38,11 @@ export default defineConfig({
   projects: [
     {
       name: 'aywin',
-      use: { ...devices['Desktop Chrome'], baseURL: '' },
+      use: {
+        ...devices['Desktop Chrome'],
+        baseURL: '',
+        testIdAttribute: 'data-cy',
+      },
       testMatch: '**/invoice.spec.ts',
     },
     {
