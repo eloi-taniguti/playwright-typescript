@@ -22,7 +22,7 @@ test('should have more than 10 regions', { tag: ['@smoke'] }, async () => {
 })
 
 test('should search from header', async () => {
-    await home.searchInHeader('amazon')
+    await results.searchInHeader('amazon')
     await expect(results.allTitles.first()).toContainText('Amazon.com')
 })
 

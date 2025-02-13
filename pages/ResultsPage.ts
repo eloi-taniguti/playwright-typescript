@@ -1,7 +1,7 @@
 import { type Locator, type Page } from '@playwright/test';
+import { BasePage } from './BasePage';
 
-export class ResultsPage {
-    readonly page: Page
+export class ResultsPage extends BasePage{
     readonly allTitles: Locator
     readonly allImgTitles: Locator
     readonly allVideoTitles: Locator
@@ -9,7 +9,7 @@ export class ResultsPage {
     readonly regionItems: Locator
 
     constructor(page: Page) {
-        this.page = page
+        super(page)
         this.allTitles = page.getByTestId('result-title-a').locator('span')
         this.allImgTitles = page.locator('.tile--img__title')
         this.allVideoTitles = page.locator('.tile__title')
