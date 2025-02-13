@@ -1,12 +1,12 @@
 import { type Locator, type Page } from '@playwright/test';
+import { BasePage } from './BasePage';
 
-export class HomePage {
-    readonly page: Page
+export class HomePage extends BasePage {
     readonly inputField: Locator
     readonly searchButton: Locator
 
     constructor(page: Page) {
-        this.page = page
+        super(page)
         this.inputField = page.locator('#searchbox_input')
         this.searchButton = page.locator('button[aria-label="Search"]')
     }

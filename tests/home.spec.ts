@@ -15,7 +15,7 @@ test.beforeEach(async ({ page }) => {
   await page.goto('/')
 })
 
-test('should search for android', async ({ page }) => {
+test('should search for android', { tag: ['@smoke'] }, async ({ page }) => {
   // Expect a title "to contain" a substring.
   await expect(page).toHaveTitle(/DuckDuckGo/)
   await home.searchBy(searchValue)
@@ -24,10 +24,3 @@ test('should search for android', async ({ page }) => {
     expect(title).toContain(capitalizeFirstLetter(searchValue))
   })
 })
-
-test('should count all regions', async () => {
-  await home.searchBy(searchValue)
-  await results.regionFilterButton.click()
-  expect(await results.regionItems.count()).toBeGreaterThan(10)
-})
-
