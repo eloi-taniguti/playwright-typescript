@@ -38,16 +38,16 @@ export default defineConfig({
   projects: [
     {
     name: 'e2e',
-      use: { ...devices['Desktop Chrome'] },
+      use: { ...devices['Desktop Chrome'], channel: 'chromium' },
     },
     {
       name: 'smoke',
-      use: { ...devices['Desktop Chrome'] },
+      use: { ...devices['Desktop Chrome'], channel: 'chromium' },
       grep: /@smoke/,
     },
     {
       name: 'api',
-      use: { ...devices['Desktop Chrome'] },
+      use: { ...devices['Desktop Chrome'], channel: 'chromium' },
       testMatch: '**/api.spec.ts',
     },
   ],
