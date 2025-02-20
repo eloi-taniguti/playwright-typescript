@@ -21,9 +21,9 @@ export default defineConfig({
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
   /* Retry on CI only */
-  retries: process.env.CI ? 2 : 0,
+  retries: 2,
   /* Opt out of parallel tests on CI. */
-  workers: process.env.CI ? 1 : undefined,
+  workers: 1,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: 'html',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
@@ -37,24 +37,13 @@ export default defineConfig({
   /* Configure projects for major browsers */
   projects: [
     {
-      name: 'aywin',
-      use: {
-        ...devices['Desktop Chrome'],
-        baseURL: '',
-        testIdAttribute: 'data-cy',
-      },
-      testMatch: '**/invoice.spec.ts',
-    },
-    {
-      name: 'e2e',
+    name: 'e2e',
       use: { ...devices['Desktop Chrome'] },
-      testIgnore: '**/invoice.spec.ts',
     },
     {
       name: 'smoke',
       use: { ...devices['Desktop Chrome'] },
       grep: /@smoke/,
-      testIgnore: '**/invoice.spec.ts',
     },
     {
       name: 'api',
