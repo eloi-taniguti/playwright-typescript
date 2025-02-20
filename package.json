@@ -3,10 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "e2e": "npx playwright test --project=e2e",
-    "e2e:smoke": "npx playwright test --project=smoke",
-    "e2e:api": "npx playwright test --project=api",
-    "e2e:aiwyn": "npx playwright test --project=aiwyn"
+    "e2e": "npx playwright test --project=e2e --headed",
+    "e2e:smoke": "npx playwright test --project=smoke --headed",
+    "e2e:api": "npx playwright test --project=api"
   },
   "keywords": [],
   "author": "",
